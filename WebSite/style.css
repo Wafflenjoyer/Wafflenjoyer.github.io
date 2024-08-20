@@ -1,0 +1,89 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #181d3b;
+  }
+  
+  .title {
+    height: 30px;
+    width: 90%;
+    font-size: 24px;
+    background-color: #bfbfbf;
+    text-align: center;
+    margin: 0 auto; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    flex-grow: 1;
+  }
+  
+  .navBar {
+    height: 50px;
+    width: 90%;
+    background-color: #bfbfbf;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    text-align: center;
+    padding: 0 10px; 
+    position: fixed; 
+    bottom: 0; 
+    left: 50%; 
+  transform: translateX(-50%);
+  z-index: 1;
+  
+  }
+  
+  .navBar a {
+    text-decoration: none; 
+    color: #000; 
+    font-size: 1.2rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navBar a i {
+    margin-right: 5px;
+  }
+  
+  .navBar a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .navBar a:hover {
+    background-color: #ddd; 
+    cursor: pointer; 
+    
+  }
+
+  .logo{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 20px;
+  }
+
+  .interactive-banner {
+    z-index: -1;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .interactive-banner img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    margin-top: 30px;
+  }
+  
+  .interactive-banner img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }

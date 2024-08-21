@@ -8,53 +8,58 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class = "title">
+<body class="title">
   <div class="navBar">
-    <a href="index.html"><img src="House.png"></i> Home</a>
-  <a href="Teams.html"><img src="School.png" > Team</a>
-  <a href="Schedule.html"><img src="Calender.png"></i> Schedule</a>
-  <a href="News.html"><img src="Newspaper.png"></i> News</a>
-  <a href="Login.html"><img src="Three lines.png"></i> Login </a>
+    <a href="index.html"><img src="House.png" alt="Home"> Home</a>
+    <a href="Teams.html"><img src="School.png" alt="Team"> Team</a>
+    <a href="Schedule.html"><img src="Calender.png" alt="Schedule"> Schedule</a>
+    <a href="News.html"><img src="Newspaper.png" alt="News"> News</a>
+    <a href="Login.html"><img src="Three lines.png" alt="Login"> Login</a>
   </div>
   <div>
-      Mustang Athletics
-      <div>
-        <select id="team-select" class="button" onchange="navigateToPage(this.value)">
-          <option value="Football.html">Varsity Football</option>
-          <option value="jvfootball.html">JV Football</option>
-          <option value="Freshfootball.html">Freshman Football</option>
-        </select>
-      </div>
-      <div class = "team-pic">
-        <img src="Team Photo.jpg">
-        <ul class="player-list">
-          <li>18 Aaron Johnson</li>
-          <li>23 Taylor Ann</li>
-          <li>7 Emily Chen</li>
-          <li>32 Michael Brown</li>
-          <li>11 Sophia Lee</li>
-        </ul>
-      </div>
+    Mustang Athletics
+    <div>
+      <select id="team-select" class="button" onchange="navigateToPage(this.value)">
+        <option value="Football.html">Varsity Football</option>
+        <option value="jvfootball.html">JV Football</option>
+        <option value="Freshfootball.html">Freshman Football</option>
+      </select>
+    </div>
+    <div class="team-pic">
+      <img src="Team Photo.jpg" alt="Team Photo">
+      <ul class="player-list">
+        <li>18 Aaron Johnson</li>
+        <li>23 Taylor Ann</li>
+        <li>7 Emily Chen</li>
+        <li>32 Michael Brown</li>
+        <li>11 Sophia Lee</li>
+      </ul>
+    </div>
   </div>
   <script>
     function navigateToPage(page) {
-    window.location.href = page;
-  }
-// Get the current page location
-var currentPage = window.location.pathname;
+      window.location.href = page;
+    }
 
-// Get the select element
-var teamSelect = document.getElementById('team-select');
+    function updateDropdown() {
+      var currentPage = window.location.pathname.split('/').pop(); // Extract the filename from the path
+      var teamSelect = document.getElementById('team-select');
+      
+      // Set the dropdown value to match the current page
+      for (var i = 0; i < teamSelect.options.length; i++) {
+        if (teamSelect.options[i].value === currentPage) {
+          teamSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
 
-// Update the selected value of the select element
-teamSelect.value = currentPage;
+    // Call the function to set the dropdown value on page load
+    updateDropdown();
 
-// Add an event listener to the window object to listen for the popstate event
-window.addEventListener('popstate', function() {
-  currentPage = window.location.pathname;
-  teamSelect.value = currentPage;
-});
-</script>
+    // Optionally, you can add an event listener to handle browser navigation
+    window.addEventListener('popstate', updateDropdown);
+  </script>
   <script src="script.js"></script>
 </body>
 

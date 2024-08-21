@@ -69,3 +69,8 @@ function showEvent(dateStr) {
 }
 
 window.onload = generateCalendar;
+
+const selectElement = document.querySelector('.button');
+const currentPage = window.location.pathname;
+
+selectElement.value = currentPage;

@@ -1,168 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Athletic App - News</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #181d3b;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .navBar {
-      background-color: #bfbfbf;
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    .navBar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-    .navBar a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    .navBar img {
-      height: 20px;
-      width: 20px;
-      margin-right: 8px;
-    }
-    .title {
-      padding-top: 60px; /* To prevent content from hiding behind the navbar */
-    }
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #444;
-    }
-    form {
-      margin-bottom: 30px;
-    }
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: #28a745;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    .game-info {
-      margin-top: 20px;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-    }
-    .game-info h2 {
-      margin-top: 0;
-    }
-  </style>
+  <title>Athletic App</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="title">
   <div class="navBar">
     <a href="Home.html"><img src="House.png" alt="Home"> Home</a>
-    <a href="Teams.html"><img src="School.png"> Team</a>
-    <a href="Schedule.html"><img src="Calender.png"> Schedule</a>
-    <a href="News.html"><img src="Newspaper.png"> News</a>
-    <a href="Login.html"><img src="Three lines.png"> Login</a>
+    <a href="Teams.html"><img src="School.png" > Team</a>
+    <a href="Schedule.html"><img src="Calender.png"></i> Schedule</a>
+    <a href="News.html"><img src="Newspaper.png"></i> News</a>
+    <a href="Login.html"><img src="Three lines.png"></i> Login </a>
+  </div>
+  <div>
+    Mustang Athletics
   </div>
 
-  <div class="container">
-    <h1>Shadow Ridge High School Game News</h1>
-    <form id="gameForm">
-      <label for="gameTitle">Game Title</label>
-      <input type="text" id="gameTitle" name="gameTitle" required>
+  <section id="news-post">
+    <h2>Submit a News Post</h2>
+    <form id = "news-post-form">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br>
 
-      <label for="gameDate">Game Date</label>
-      <input type="date" id="gameDate" name="gameDate" required>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required><br>
 
-      <label for="gameDescription">Game Description</label>
-      <textarea id="gameDescription" name="gameDescription" rows="4" required></textarea>
+      <label  
+ for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea><br>
 
-      <button type="submit">Add Game Info</button>
+      <button type="submit">Submit</button>  
+
     </form>
+  </section>
+  <section id="news-posts">
+  </section>
 
-    <div id="gameInfoContainer"></div>
-  </div>
 
-  <script>
-    const gameInfoContainer = document.getElementById('gameInfoContainer');
-    const gameForm = document.getElementById('gameForm');
-    
-    let games = [];
-
-    gameForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const gameTitle = document.getElementById('gameTitle').value;
-      const gameDate = document.getElementById('gameDate').value;
-      const gameDescription = document.getElementById('gameDescription').value;
-
-      const gameInfo = {
-        title: gameTitle,
-        date: gameDate,
-        description: gameDescription
-      };
-
-      games.push(gameInfo);
-      displayGames();
-      gameForm.reset();
-    });
-
-    function displayGames() {
-      gameInfoContainer.innerHTML = '';
-
-      games.forEach(game => {
-        const gameDiv = document.createElement('div');
-        gameDiv.className = 'game-info';
-        
-        gameDiv.innerHTML = `
-          <h2>${game.title}</h2>
-          <p><strong>Date:</strong> ${game.date}</p>
-          <p>${game.description}</p>
-        `;
-
-        gameInfoContainer.appendChild(gameDiv);
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>

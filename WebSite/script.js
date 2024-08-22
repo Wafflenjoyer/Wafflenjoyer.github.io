@@ -74,3 +74,55 @@ const selectElement = document.querySelector('.button');
 const currentPage = window.location.pathname;
 
 selectElement.value = currentPage;
+
+const newsPostForm = document.getElementById('news-post-form');
+const newsPostsContainer = document.getElementById('news-posts');
+
+newsPostForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const title = document.getElementById('title').value;
+  const date = document.getElementById('date').value;
+  const  
+ description = document.getElementById('description').value;
+
+  // Create a new news item element
+  const newsItem = document.createElement('div');
+  newsItem.className = 'news-item';
+  newsItem.innerHTML = `
+    <h3>${title}</h3>
+    <p>${date}</p>
+    <p>${description}</p>
+  `;
+
+  // Append the news item to the container
+  newsPostsContainer.appendChild(newsItem);
+
+  // Clear the form fields
+  document.getElementById('title').value = '';
+  document.getElementById('date').value = '';
+  document.getElementById('description').value = '';
+});
+
+    function navigateToPage(page) {
+      window.location.href = page;
+    }
+
+    function updateDropdown() {
+      var currentPage = window.location.pathname.split('/').pop(); // Extract the filename from the path
+      var teamSelect = document.getElementById('team-select');
+      
+      // Set the dropdown value to match the current page
+      for (var i = 0; i < teamSelect.options.length; i++) {
+        if (teamSelect.options[i].value === currentPage) {
+          teamSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Call the function to set the dropdown value on page load
+    updateDropdown();
+
+    // Optionally, you can add an event listener to handle browser navigation
+    window.addEventListener('popstate', updateDropdown);

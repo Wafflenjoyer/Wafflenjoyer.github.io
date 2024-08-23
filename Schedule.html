@@ -9,8 +9,8 @@
     html {
       height: 100%;
       width: 100%;
-      background-color: #181d3b; /* Dark blue background for the entire page */
-      color: #ffffff; /* Default text color for the page */
+      background-color: #181d3b; 
+      color: #ffffff; 
     }
 
     body {
@@ -23,8 +23,8 @@
       height: 50px;
       width: 90%;
       font-size: 24px;
-      background-color: #181d3b; /* Dark blue background */
-      color: #ffffff; /* White text color */
+      background-color: #bfbfbf;
+      color: #000;
       text-align: center;
       margin: 0 auto; 
       padding: 10px; 
@@ -34,7 +34,7 @@
     .navBar {
       height: 50px;
       width: 90%;
-      background-color: #181d3b; /* Dark blue background */
+      background-color: #bfbfbf;
       margin: 0 auto;
       display: flex;
       justify-content: space-around; 
@@ -50,7 +50,7 @@
 
     .navBar a {
       text-decoration: none; 
-      color: #ffffff; /* White text color */
+      color: #000; 
       font-size: 1.2rem;
       padding: 10px;
       display: flex;
@@ -65,18 +65,18 @@
     }
 
     .navBar a:hover {
-      background-color: #0056b3; /* Darker blue on hover */
+      background-color: #ddd; 
       cursor: pointer;
     }
 
     .content {
       margin: 20px auto;
-      width: 90%; /* Same width as the title and navBar */
-      max-width: 800px; /* Max width for the content container */
+      width: 90%; 
+      max-width: 800px; 
     }
 
     h1 {
-      color: #ffffff; /* White text color for headings */
+      color: #ffffff; 
       text-align: center;
     }
 
@@ -91,8 +91,8 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color: #bfbfbf; /* Gray background for the calendar */
-      color: #000000; /* Black text color inside the calendar */
+      background-color: #bfbfbf; 
+      color: #000000; 
     }
 
     th, td {
@@ -102,11 +102,11 @@
     }
 
     th {
-      background-color: #bfbfbf; /* Gray background for table headers */
+      background-color: #bfbfbf; 
     }
 
     .event {
-      background-color: #bfbfbf; /* Gray background for event cells */
+      background-color: #bfbfbf; 
     }
 
     .event input {
@@ -115,18 +115,18 @@
     }
 
     .form-container {
-      background-color: #181d3b; /* Dark blue background */
+      background-color: #181d3b; 
       padding: 20px;
       border-radius: 5px;
       margin-top: 20px;
-      text-align: center; /* Center text inside the container */
+      text-align: center; 
     }
 
     .form-container label {
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
-      color: #ffffff; /* White text color for labels */
+      color: #ffffff; 
     }
 
     .form-container input {
@@ -134,7 +134,7 @@
       border: 1px solid #ccc;
       border-radius: 3px;
       margin-bottom: 15px;
-      width: calc(100% - 22px); /* Full width minus padding */
+      width: calc(100% - 22px); 
     }
 
     .form-container button {
@@ -150,23 +150,22 @@
       background-color: #0069d9;
     }
 
-    /* New styles for the logo image */
+    
     .logo {
-      text-align: center; /* Center the logo container */
+      text-align: center; 
       margin: 40px auto 20px;
     }
 
     .logo img {
-      width: 80vw; /* 80% of the viewport width */
-      max-width: 100%; /* Ensures the image does not exceed its container */
-      height: auto; /* Maintain aspect ratio */
+      width: 80vw;
+      max-width: 100%; 
+      height: auto; 
     }
 
-    /* Added styles for calendar and form */
     #calendar {
       width: 100%;
       border-collapse: collapse;
-      background-color: #bfbfbf; /* Gray background for the calendar */
+      background-color: #bfbfbf; 
     }
 
     #calendar th, #calendar td {
@@ -176,11 +175,11 @@
     }
 
     #calendar th {
-      background-color: #bfbfbf; /* Gray background for table headers */
+      background-color: #bfbfbf;
     }
 
     #calendar .event {
-      background-color: #bfbfbf; /* Gray background for event cells */
+      background-color: #bfbfbf; 
     }
   </style>
 </head>
@@ -208,6 +207,12 @@
       <option value="3">April</option>
       <option value="4">May</option>
       <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
     </select>
 
     <table id="calendar">
@@ -223,7 +228,7 @@
         </tr>
       </thead>
       <tbody id="calendar-body">
-        <!-- Calendar days will be inserted here -->
+        
       </tbody>
     </table>
 

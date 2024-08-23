@@ -63,13 +63,20 @@ html {
     
   }
 
-  .logo{
+  .logo {
+    max-width: 100%;
     width: 90%;
+    height: 20px; 
     margin: 0 auto;
     margin-top: 30px;
-    height: 20px;
   }
 
+  .logo img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
   .team-pic{
     width: 100%;
     width: 100%;

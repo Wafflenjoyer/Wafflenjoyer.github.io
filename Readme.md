@@ -1,2 +1,2 @@
 Mustang Athletics Web App
-This is a simple web application for a fictional athletic club called "Mustang Athletics". The club has teams for football, basketball, and track and field, and this app provides information about the teams, their schedules, and news.
+This is our app that we created for our school to showcase our schools athletics and a place to view scorees and to purchase tickets 

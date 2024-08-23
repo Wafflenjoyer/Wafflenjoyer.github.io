@@ -5,124 +5,272 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Athletic App</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    html {
+      height: 100%;
+      width: 100%;
+      background-color: #181d3b; /* Dark blue background for the entire page */
+      color: #ffffff; /* Default text color for the page */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .title {
+      height: 50px;
+      width: 90%;
+      font-size: 24px;
+      background-color: #181d3b; /* Dark blue background */
+      color: #ffffff; /* White text color */
+      text-align: center;
+      margin: 0 auto; 
+      padding: 10px; 
+      border: 1px solid #ccc;
+    }
+
+    .navBar {
+      height: 50px;
+      width: 90%;
+      background-color: #181d3b; /* Dark blue background */
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around; 
+      align-items: center;
+      text-align: center;
+      padding: 0 10px; 
+      position: fixed; 
+      bottom: 0; 
+      left: 50%; 
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .navBar a {
+      text-decoration: none; 
+      color: #ffffff; /* White text color */
+      font-size: 1.2rem;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navBar a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .navBar a:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+      cursor: pointer;
+    }
+
+    .content {
+      margin: 20px auto;
+      width: 90%; /* Same width as the title and navBar */
+      max-width: 800px; /* Max width for the content container */
+    }
+
+    h1 {
+      color: #ffffff; /* White text color for headings */
+      text-align: center;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #bfbfbf; /* Gray background for the calendar */
+      color: #000000; /* Black text color inside the calendar */
+    }
+
+    th, td {
+      border: 1px solid #bfbfbf;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #bfbfbf; /* Gray background for table headers */
+    }
+
+    .event {
+      background-color: #bfbfbf; /* Gray background for event cells */
+    }
+
+    .event input {
+      width: calc(100% - 20px);
+      box-sizing: border-box;
+    }
+
+    .form-container {
+      background-color: #181d3b; /* Dark blue background */
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center; /* Center text inside the container */
+    }
+
+    .form-container label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #ffffff; /* White text color for labels */
+    }
+
+    .form-container input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 15px;
+      width: calc(100% - 22px); /* Full width minus padding */
+    }
+
+    .form-container button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0069d9;
+    }
+
+    /* New styles for the logo image */
+    .logo {
+      text-align: center; /* Center the logo container */
+      margin: 40px auto 20px;
+    }
+
+    .logo img {
+      width: 80vw; /* 80% of the viewport width */
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Added styles for calendar and form */
+    #calendar {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #bfbfbf; /* Gray background for the calendar */
+    }
+
+    #calendar th, #calendar td {
+      border: 1px solid #bfbfbf;
+      padding: 8px;
+      text-align: center;
+    }
+
+    #calendar th {
+      background-color: #bfbfbf; /* Gray background for table headers */
+    }
+
+    #calendar .event {
+      background-color: #bfbfbf; /* Gray background for event cells */
+    }
+  </style>
 </head>
 
-<body class="title">
-  <div class="navBar">
-    <a href="index.html"><img src="House.png" alt="Home"> Home</a>
-    <a href="Teams.html"><img src="School.png" > Team</a>
-    <a href="Schedule.html"><img src="Calender.png"></i> Schedule</a>
-    <a href="News.html"><img src="Newspaper.png"></i> News</a>
-    <a href="Login.html"><img src="Three lines.png"></i> Login </a>
-  </div>
-  <div>
+<body>
+  <div class="title">
     Mustang Athletics
   </div>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    th, td {
-        border: 1px solid #bfbfbf;
-        padding: 8px;
-        text-align: center;
-    }
-    th {
-        background-color: #bfbfbf;
-    }
-    .event {
-        background-color: #bfbfbf;
-    }
-    .event input {
-        width: calc(100% - 20px);
-        box-sizing: border-box;
-    }
-    .event-button {
-        margin-top: 10px;
-    }
-</style>
+  
+  <div class="navBar">
+    <a href="Home.html"><img src="House.png" alt="Home"> Home</a>
+    <a href="Teams.html"><img src="School.png"> Team</a>
+    <a href="Schedule.html"><img src="Calender.png"> Schedule</a>
+    <a href="News.html"><img src="Newspaper.png"> News</a>
+    <a href="Login.html"><img src="Three lines.png"> Login</a>
+  </div>
+  
+  <div class="content">
+    <h1>Athletic Calendar</h1>
+    
+    <select id="month-select">
+      <option value="0">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+    </select>
 
-  <h1>Athletic Calendar</h1>
-  <select id="month-select">
-    <option value="0">January</option>
-    <option value="1">February</option>
-    <option value="2">March</option>
-    <option value="3">April</option>
-    <option value="4">May</option>
-    <option value="5">June</option>
-    <option value="6">July</option>
-    <option value="7">August</option>
-    <option value="8">September</option>
-    <option value="9">October</option>
-    <option value="10">November</option>
-    <option value="11">December</option>
-  </select>
-
-<table id="calendar">
-    <thead>
+    <table id="calendar">
+      <thead>
         <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
         </tr>
-    </thead>
-    <tbody id="calendar-body">
-    </tbody>
-</table>
+      </thead>
+      <tbody id="calendar-body">
+        <!-- Calendar days will be inserted here -->
+      </tbody>
+    </table>
 
-<div>
-    <label for="date">Date (MM/DD/YYYY):</label>
-    <input type="date" id="date">
-    <label for="team">Team Name:</label>
-    <input type="text" id="team">
-    <button onclick="addEvent()">Add Event</button>
-</div>
+    <div class="form-container">
+      <label for="date">Date (MM/DD/YYYY):</label>
+      <input type="date" id="date">
+      <label for="team">Team Name:</label>
+      <input type="text" id="team">
+      <button onclick="addEvent()">Add Event</button>
+    </div>
+  </div>
 
-<script>
-  const monthSelect = document.getElementById('month-select');
-  const calendarBody = document.getElementById('calendar-body');
+  <script>
+    const monthSelect = document.getElementById('month-select');
+    const calendarBody = document.getElementById('calendar-body');
 
-  function generateCalendar() {
-    const date = new Date();
-    const selectedMonth = monthSelect.value;
-    date.setMonth(selectedMonth);
-    date.setDate(1);
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    const lastDay = new Date(year, month + 1, 0).getDate();
-    const firstDay = date.getDay();
+    function generateCalendar() {
+      const date = new Date();
+      const selectedMonth = monthSelect.value;
+      date.setMonth(selectedMonth);
+      date.setDate(1);
+      const month = date.getMonth();
+      const year = date.getFullYear();
+      const lastDay = new Date(year, month + 1, 0).getDate();
+      const firstDay = date.getDay();
 
-    let html = '<tr>';
+      let html = '<tr>';
 
-    // Empty cells before the first day
-    for (let i = 0; i < firstDay; i++) {
-      html += '<td></td>';
-    }
-
-    for (let day = 1; day <= lastDay; day++) {
-      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      html += `<td class="event" id="${dateStr}" onclick="showEvent('${dateStr}')">${day}</td>`;
-      if ((day + firstDay) % 7 === 0) {
-        html += '</tr><tr>';
+      // Empty cells before the first day
+      for (let i = 0; i < firstDay; i++) {
+        html += '<td></td>';
       }
+
+      for (let day = 1; day <= lastDay; day++) {
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        html += `<td class="event" id="${dateStr}" onclick="showEvent('${dateStr}')">${day}</td>`;
+        if ((day + firstDay) % 7 === 0) {
+          html += '</tr><tr>';
+        }
+      }
+
+      html += '</tr>';
+      calendarBody.innerHTML = html;
     }
 
-    html += '</tr>';
-    calendarBody.innerHTML = html;
-  }
-
-  monthSelect.addEventListener('change', generateCalendar);
-  generateCalendar();
-</script>
+    monthSelect.addEventListener('change', generateCalendar);
+    generateCalendar();
+  </script>
 </body>
 </html>

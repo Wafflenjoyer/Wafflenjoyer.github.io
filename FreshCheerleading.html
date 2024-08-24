@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Athletic App</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="title">
+  <div class="navBar">
+    <a href="index.html"><img src="House.png" alt="Home"> Home</a>
+    <a href="Teams.html"><img src="School.png" alt="Team"> Team</a>
+    <a href="Schedule.html"><img src="Calender.png" alt="Schedule"> Schedule</a>
+    <a href="News.html"><img src="Newspaper.png" alt="News"> News</a>
+    <a href="Login.html"><img src="Three lines.png" alt="Login"> Login</a>
+  </div>
+  <div>
+    Mustang Athletics
+    <div>
+      <select id="team-select" class="button" onchange="navigateToPage(this.value)">
+        <option value="Cheerleading.html">Varsity Cheerleading</option>
+        <option value="JVcheerleading.html">JV Cheerleading</option>
+        <option value="FreshCheerleading.html">Freshman Cheerleading</option>
+      </select>
+    </div>
+    <div class="team-pic">
+      <img src="Team Photo.jpg" alt="Team Photo">
+      <ul class="player-list">
+        <li>18 Aaron Johnson</li>
+        <li>23 Taylor Ann</li>
+        <li>7 Emily Chen</li>
+        <li>32 Michael Brown</li>
+        <li>11 Sophia Lee</li>
+        <li></li>
+      </ul>
+      <div style="text-align: center; margin-top: 20px;">
+        <button style="width: 200px; height: 50px; font-size: 24px; background-color: #bfbfbf; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+          <a href="https://my.hometownticketing.com/agency/8e9e23fc-90ce-4cc4-b2d8-d843b6c598d8" style="text-decoration: none; color: #fff;">Purchase Tickets Here</a>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+ <script>
+    function navigateToPage(page) {
+      window.location.href = page;
+    }
+
+    function updateDropdown() {
+      var currentPage = window.location.pathname.split('/').pop(); // Extract the filename from the path
+      var teamSelect = document.getElementById('team-select');
+      
+      // Set the dropdown value to match the current page
+      for (var i = 0; i < teamSelect.options.length; i++) {
+        if (teamSelect.options[i].value === currentPage) {
+          teamSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Call the function to set the dropdown value on page load
+    updateDropdown();
+
+    // Optionally, you can add an event listener to handle browser navigation
+    window.addEventListener('popstate', updateDropdown);
+  </script> 
+  <script src="script.js"></script>
+</body>
+
+</html>

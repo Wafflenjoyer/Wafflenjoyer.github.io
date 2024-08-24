@@ -6,6 +6,41 @@
   <meta name="viewport" content="width=device-width">
   <title>Athletic App</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    .carousel {
+      position: fixed;
+      bottom: 50px;
+      left: 0;
+      width: 100%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .carousel-item {
+      display: inline-block;
+      margin-right: 20px;
+      width:400px;
+      height: 400px;
+      margin-right: 3px;
+      padding: 0px;
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+      background-color: #bfbfbf;
+    }
+    
+    .carousel-item img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+    .carousel-item p {
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -47px;
+  transform: translateY(90px);
+}
+  </style>
 </head>
 
 <body class = "title">
@@ -19,47 +54,51 @@
   <div>
       Mustang Athletics
   </div>
-  <div>
-    <a href="Football.html">
-      <img src="Football.png" alt="Team Banner">
-      <h2>Football</h2>
-    </a>
-    <a href="Men'sX-country.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Men's x-country</h2>
-    </a>
-    <a href="Women'sx-country.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Women's x-country</h2>
-    </a>
-    <a href="Women'sGolf.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Women's Golf</h2>
-    </a>
-    <a href="Men'sSoccer.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Men's Soccer</h2>
-    </a>
-    <a href="Women'sSoccer.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Women's Soccer</h2>
-    </a>
-    <a href="Men'sTennis.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Men's Tennis</h2>
-    </a>
-    <a href="Women'sTennis.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Women's Tennis</h2>
-    </a>
-    <a href="Women'svolleyball.html">
-      <img src="logo.png" alt="Team Banner">
-      <h2>Women's Volleyball</h2>
-    </a>
-    <li></li>
-    <li></li>
-   
+  <div class="carousel">
+    <div class="carousel-item" onclick="navigateToPage('Football.html')">
+      <img src="Main-Logo.png" alt="Football">
+      <p>Football</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('MensX-country.html')">
+      <img src="Main-Logo.png" alt="MensX-country">
+      <p>Men's X-Country</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Womensx-country.html')">
+      <img src="Main-Logo.png" alt="Womensx-country">
+      <p>Women's X-Country</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Womensgolf.html')">
+      <img src="Main-Logo.png" alt="Womensgolf">
+      <P>Women's Golf</P>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('menssoccer.html')">
+      <img src="Main-Logo.png" alt="menssoccer">
+      <p>Men'soccer</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Womenssoccer.html')">
+      <img src="Main-Logo.png" alt="Womenssoccer">
+      <p>Women'soccer</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Menstennis.html')">
+      <img src="Main-Logo.png" alt="Menstennis">
+      <P>Men's Tennis</P>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Womenstenis.html')">
+      <img src="Main-Logo.png" alt="Womenstenis">
+      <p>Women's Tennis</p>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Womensvolleyball.html')">
+      <img src="Main-Logo.png" alt="Womensvolleyball">
+      <p>Women's Volleyball</p>
+    </div>
   </div>
+  </div>
+  <script>
+    function navigateToPage(page) {
+      window.location.href = page;
+      window.scrollTo(0, 0); 
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 

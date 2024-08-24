@@ -1,4 +1,4 @@
-const banner = document.querySelector('.interactive-banner');
+/* const banner = document.querySelector('.interactive-banner');
 
 banner.addEventListener('click', () => {
   // Add some animation or effect here
@@ -13,7 +13,7 @@ banner.addEventListener('mouseover', () => {
 banner.addEventListener('mouseout', () => {
   // Add some animation or effect here
   console.log('Banner mouseout!');
-});
+}); */
 
 function generateCalendar() {
   const calendarBody = document.getElementById('calendar-body');

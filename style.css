@@ -83,6 +83,11 @@ html {
     margin-top: 30px;
     height: 0px;
   }
+  .team-pic img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
 
   .interactive-banner {
     z-index: -1;

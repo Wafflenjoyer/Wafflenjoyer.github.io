@@ -7,13 +7,54 @@
   <title>Athletic App</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
+  .carousel {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .carousel-item {
+    display: inline-block;
+    margin-right: 20px;
+    width:340px;
+    height: 340px;
+    margin-right: 3px;
+    padding: 0px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #bfbfbf;
+  }
+  
+  .carousel-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  .carousel-item h1 {
+font-size: 22px;
+font-weight: bold;
+text-align: center;
+margin-top: -47px;
+transform: translateY(60px);
+}
+.carousel-item p {
+font-size: 12px;
+font-weight: bold;
+text-align: left;
+margin-top: -47px;
+transform: translateY(60px);
+}
+</style>
 
 <body class = "title">
   <div class="navBar">
     <a href="index.html"><img src="House.png" alt="Home"> Home</a>
   <a href="Teams.html"><img src="School.png" > Teams </a>
   <a href="Schedule.html"><img src="Calender.png"></i> Schedule </a>
-  <a href="News.html"><img src="Newspaper.png"></i> News </a>
   <a href="Login.html"><img src="Three lines.png"></i> Login </a>
   </div>
   <div>
@@ -22,6 +63,23 @@
         <img src="Mustang Moto.png">
       </div>
   </div>
+  <div class="carousel">
+    <div class="carousel-item" onclick="navigateToPage('FanGuide.html')">
+      <img src="Main-Logo.png" alt="Fan Guide">
+      <h1>Fan Guide</h1>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('RidgeReport.html')">
+      <img src="Main-Logo.png" alt="Bowling">
+      <h1>Ridge Report </h1>
+    </div>
+    <div class="carousel-item" onclick="navigateToPage('Tickets.html')">
+      <img src="Main-Logo.png" alt="Cheerleading">
+      <h1>Tickets</h1>
+    </div>
+      <div class="carousel-item" onclick="navigateToPage('News.html')">
+        <img src="Main-Logo.png" alt="News">
+        <h1>News</h1>
+      </div>
   <script src="script.js"></script>
 </body>
 

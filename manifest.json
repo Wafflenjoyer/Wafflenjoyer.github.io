@@ -1,29 +1,27 @@
 {
-    "name": "Shadow Ridge High School Athletics",
-    "short_name": "SRHS Athletics",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
-    "icons": [
-      {
-        "src": "srhslogosquare.png",
-        "sizes": "225x225",
-        "type": "image/png"
-      }
-      "screenshots": [
-        {
-          "src": "375x812ss.png",
-          "sizes": "375x812",
-          "type": "image/png"
-        },
-        {
-          "src": "/path/to/412x915ss.png",
-          "sizes": "412x915",
-          "type": "image/png"
-        }
-      ]
-        }
-    ]
-  }
-  
+  "name": "Shadow Ridge High School Athletics",
+  "short_name": "SRHS Athletics",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "srhslogosquare.png",
+      "sizes": "225x225",
+      "type": "image/png"
+    }
+  ],  
+  "screenshots": [
+    {
+      "src": "375x812ss.png",
+      "sizes": "375x812",
+      "type": "image/png"
+    },
+    {
+      "src": "/path/to/412x915ss.png",
+      "sizes": "412x915",
+      "type": "image/png"
+    }
+  ]
+}

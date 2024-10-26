@@ -81,37 +81,58 @@
     }
 
     select {
-      width: 100%;
+      width: 48%;
       padding: 10px;
       margin-bottom: 20px;
       border: 1px solid #ccc;
       border-radius: 3px;
     }
 
-    table {
+    #calendar {
       width: 100%;
       border-collapse: collapse;
-      background-color: #bfbfbf; 
+      background-color: #bfbfbf;
       color: #000000; 
     }
 
-    th, td {
-      border: 1px solid #bfbfbf;
+    #calendar th, #calendar td {
+      border: 1px solid #fff;
       padding: 8px;
       text-align: center;
+      position: relative;
     }
 
-    th {
-      background-color: #bfbfbf; 
+    #calendar th {
+      background-color: #333;
+      color: #fff;
     }
 
     .event {
-      background-color: #bfbfbf; 
+      background-color: #ffffff; /* Changed to white */
+      color: #000;
+      cursor: pointer;
+      position: relative;
     }
 
-    .event input {
-      width: calc(100% - 20px);
-      box-sizing: border-box;
+    .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: 150px;
+      font-size: 0.9rem;
+      white-space: normal;
+    }
+
+    .event:hover .tooltip {
+      visibility: visible;
     }
 
     .form-container {
@@ -129,7 +150,7 @@
       color: #ffffff; 
     }
 
-    .form-container input {
+    .form-container input, .form-container textarea {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 3px;
@@ -150,7 +171,6 @@
       background-color: #0069d9;
     }
 
-    
     .logo {
       text-align: center; 
       margin: 40px auto 20px;
@@ -161,44 +181,22 @@
       max-width: 100%; 
       height: auto; 
     }
-
-    #calendar {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: #bfbfbf; 
-    }
-
-    #calendar th, #calendar td {
-      border: 1px solid #bfbfbf;
-      padding: 8px;
-      text-align: center;
-    }
-
-    #calendar th {
-      background-color: #bfbfbf;
-    }
-
-    #calendar .event {
-      background-color: #bfbfbf; 
-    }
   </style>
 </head>
 
 <body>
-  <div class="title">
-    Mustang Athletics
-  </div>
-  
+  <div class="title">Mustang Athletics</div>
+
   <div class="navBar">
     <a href="index.html"><img src="House.png" alt="Home"> Home</a>
-    <a href="Teams.html"><img src="School.png"> Team</a>
-    <a href="Schedule.html"><img src="Calender.png"> Schedule</a>
-    <a href="Login.html"><img src="Three lines.png"> Login</a>
+    <a href="Teams.html"><img src="School.png" alt="Team"> Team</a>
+    <a href="Schedule.html"><img src="Calendar.png" alt="Schedule"> Schedule</a>
+    <a href="Login.html"><img src="Three lines.png" alt="Login"> Login</a>
   </div>
-  
+
   <div class="content">
     <h1>Athletic Calendar</h1>
-    
+
     <select id="month-select">
       <option value="0">January</option>
       <option value="1">February</option>
@@ -214,6 +212,15 @@
       <option value="11">December</option>
     </select>
 
+    <select id="year-select">
+      <script>
+        const currentYear = new Date().getFullYear();
+        for (let year = currentYear - 5; year <= currentYear + 5; year++) {
+          document.write(`<option value="${year}">${year}</option>`);
+        }
+      </script>
+    </select>
+
     <table id="calendar">
       <thead>
         <tr>
@@ -226,9 +233,7 @@
           <th>Sat</th>
         </tr>
       </thead>
-      <tbody id="calendar-body">
-        
-      </tbody>
+      <tbody id="calendar-body"></tbody>
     </table>
 
     <div class="form-container">
@@ -236,34 +241,36 @@
       <input type="date" id="date">
       <label for="team">Team Name:</label>
       <input type="text" id="team">
+      <label for="info">Additional Information:</label>
+      <textarea id="info" rows="3" placeholder="Enter event details here..."></textarea>
       <button onclick="addEvent()">Add Event</button>
     </div>
   </div>
 
   <script>
     const monthSelect = document.getElementById('month-select');
+    const yearSelect = document.getElementById('year-select');
     const calendarBody = document.getElementById('calendar-body');
+    const events = {};
 
     function generateCalendar() {
-      const date = new Date();
-      const selectedMonth = monthSelect.value;
-      date.setMonth(selectedMonth);
-      date.setDate(1);
-      const month = date.getMonth();
-      const year = date.getFullYear();
-      const lastDay = new Date(year, month + 1, 0).getDate();
+      const selectedMonth = parseInt(monthSelect.value);
+      const selectedYear = parseInt(yearSelect.value);
+      const date = new Date(selectedYear, selectedMonth, 1);
+      const lastDay = new Date(selectedYear, selectedMonth + 1, 0).getDate();
       const firstDay = date.getDay();
 
       let html = '<tr>';
 
-      // Empty cells before the first day
       for (let i = 0; i < firstDay; i++) {
         html += '<td></td>';
       }
 
       for (let day = 1; day <= lastDay; day++) {
-        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        html += `<td class="event" id="${dateStr}" onclick="showEvent('${dateStr}')">${day}</td>`;
+        const dateStr = `${selectedYear}-${String(selectedMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const event = events[dateStr];
+        const eventLabel = event ? `<span class="tooltip">${event.team}: ${event.info}</span>` : '';
+        html += `<td class="event" id="${dateStr}">${day}${eventLabel}</td>`;
         if ((day + firstDay) % 7 === 0) {
           html += '</tr><tr>';
         }
@@ -273,7 +280,20 @@
       calendarBody.innerHTML = html;
     }
 
+    function addEvent() {
+      const dateInput = document.getElementById('date').value;
+      const teamInput = document.getElementById('team').value;
+      const infoInput = document.getElementById('info').value;
+      if (dateInput && teamInput && infoInput) {
+        events[dateInput] = { team: teamInput, info: infoInput };
+        generateCalendar();
+      } else {
+        alert("Please fill out all fields.");
+      }
+    }
+
     monthSelect.addEventListener('change', generateCalendar);
+    yearSelect.addEventListener('change', generateCalendar);
     generateCalendar();
   </script>
 </body>
